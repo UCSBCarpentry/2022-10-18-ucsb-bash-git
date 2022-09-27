@@ -63,6 +63,10 @@
             {% else %}
               {% assign episode = lesson_episode %}
             {% endif %}
+            {% if episode.break %}
+              {% comment %} Don't show "break" episodes {% endcomment %}
+              {% continue %}
+            {% endif %}
             <li><a href="{{ relative_root_path }}{{ episode.url }}">{{ episode.title }}</a></li>
             {% endfor %}
 	    <li role="separator" class="divider"></li>
